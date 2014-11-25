@@ -1,0 +1,10 @@
+- name: update aptitude repositories
+  apt:
+    update_cache=yes
+    force=yes
+
+- name: update bash shellshock
+  apt:
+    name=bash
+    state=latest
+

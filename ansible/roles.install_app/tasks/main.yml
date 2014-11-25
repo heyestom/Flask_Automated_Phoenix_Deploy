@@ -1,0 +1,9 @@
+#install app
+- name: make app dir
+  file: path=/app state=directory
+
+- name: make log dirs
+  file: path=/app/logs state=directory
+
+- name: install app
+  copy: src=../app dest=/ 

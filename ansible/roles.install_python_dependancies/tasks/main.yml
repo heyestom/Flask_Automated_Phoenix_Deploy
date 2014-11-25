@@ -1,0 +1,15 @@
+- name: install python pip 
+  sudo: true
+  apt: pkg=python-pip 
+       state=present
+
+- name: intall python dev
+  sudo: true
+  apt: pkg=python-dev
+
+- name: install Flask python package
+  pip: name=flask
+
+- name: install gunicorn 
+  pip: name=gunicorn
+

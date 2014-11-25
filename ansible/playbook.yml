@@ -1,0 +1,12 @@
+---
+- name: Run playbook
+  hosts: all
+  sudo: yes
+
+  roles:
+    - roles.update_apt
+    - roles.nginx
+    - roles.install_python_dependancies
+    - roles.install_app           
+    - roles.supervisor
+

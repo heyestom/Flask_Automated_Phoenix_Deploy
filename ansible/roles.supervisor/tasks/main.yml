@@ -1,0 +1,6 @@
+# supivisor
+- name: install supivisor
+  apt: pkg=supervisor state=present
+
+- name: add supervisor conf to restart gunicorn on reboot
+  copy: src=gunicorn_supervisor.conf dest=/etc/supervisor/conf.d/

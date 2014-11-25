@@ -1,0 +1,30 @@
+- name: add nginx PPA
+  sudo: true
+  apt_repository: repo=ppa:nginx/stable
+
+- name: install 'nginx'
+  sudo: true
+  apt: pkg=nginx state=present
+
+- name: Remove symbolic link to default Nginx app
+  file: path=/etc/nginx/sites-enabled/default state=absent
+
+- name: Remove default nginx app
+  file: path=/etc/nginx/sites-available/default state=absent
+
+- name: add app nginx config to available nginx configs
+  copy: src=app.conf dest=/etc/nginx/sites-available/app.conf
+
+- name: add symbolic link to app for nginx 
+  file: src=/etc/nginx/sites-available/app.conf path=/etc/nginx/sites-enabled/app.conf  state=link
+
+- name: add script to restart nginx on reboot
+  copy: src=restart_nginx.sh dest=/usr/local/bin/restart_nginx.sh
+
+- name: Create a cron file to reload nginx on reboot 
+  cron:
+    name="Create a job to execute at reboot"
+    special_time="reboot"
+    user="root"
+    job="bash /usr/local/bin/restart_nginx.sh"
+
