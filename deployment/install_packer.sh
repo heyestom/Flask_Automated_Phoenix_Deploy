@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# 
+
+
 echo Verifying that Packer has been installed to the application cache...
 if [ ! -d ${SNAP_CACHE_DIR}/packer ]; then
     echo Packer was missing from the cache. Installing...
@@ -11,5 +14,5 @@ fi
 
 
 
-${SNAP_CACHE_DIR}/packer/packer-packer build image_management/digital_ocean_packer_script.json
+${SNAP_CACHE_DIR}/packer/packer-packer build deployment/digital_ocean_packer_config.json
 
