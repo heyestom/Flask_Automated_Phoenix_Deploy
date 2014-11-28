@@ -20,7 +20,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # within the machine from a port on the host machine. In the example below,
   # accessing "localhost:8080" will access port 80 on the guest machine.
   config.vm.provision :ansible do |ansible|
-    ansible.playbook = 'ansible/playbook.yml'
+    ansible.playbook = 'deployment/ansible/playbook.yml'
     ansible.verbose = true
   end
 

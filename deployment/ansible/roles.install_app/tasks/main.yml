@@ -6,4 +6,4 @@
   file: path=/app/logs state=directory
 
 - name: install app
-  copy: src=../app dest=/ 
+  copy: src=app dest=/ 

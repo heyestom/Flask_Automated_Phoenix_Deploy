@@ -1,0 +1,23 @@
+{
+    "variables": {
+        "digital_ocean_api_token": "{{env `digital_ocean_api_token`}}"
+    },
+
+    "builders": [{
+        "api_token": "{{user `digital_ocean_api_token`}}",
+        "type" : "digitalocean",
+        "region": "lon1",
+        "image" : "ubuntu-14-04-x64",
+        "snapshot_name" : "Flask-{{timestamp}}"
+    }],
+
+      "provisioners": [{
+        "type": "shell",
+        "script": "deployment/install_ansible.sh"
+      },{
+        "type": "ansible-local",
+        "playbook_file": "deployment/ansible/playbook.yml",
+		"playbook_dir" : "deployment/ansible"
+    }]
+
+}
