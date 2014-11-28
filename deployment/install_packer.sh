@@ -16,6 +16,4 @@ fi
 
 
 
-
-${SNAP_CACHE_DIR}/packer/packer-packer build deployment/digital_ocean_packer_config.json
-
+${SNAP_CACHE_DIR}/packer/packer build deployment/digital_ocean_packer_config.json
