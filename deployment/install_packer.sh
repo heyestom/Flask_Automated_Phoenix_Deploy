@@ -6,7 +6,7 @@
 echo Verifying that Packer has been installed to the application cache...
 if [ ! -d ${SNAP_CACHE_DIR}/packer ]; then
     echo Packer was missing from the cache. Installing...
-    wget --no-verbose https://dl.bintray.com/mitchellh/packer/packer_0.7.2_linux_amd64.zip -O ${SNAP_CACHE_DIR}/packer.zip
+    wget --no-verbose https://dl.bintray.com/mitchellh/packer/packer_0.7.5_linux_386.zip -O ${SNAP_CACHE_DIR}/packer.zip
 
     echo download complete
 
